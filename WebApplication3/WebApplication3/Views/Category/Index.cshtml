@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WebApplication3.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Category Details</h2><br />
+<a href="/category/create">Create New Category</a>
+<table class="table">
+    <tr>
+        <th>
+            Catgeory ID
+        </th>
+        <th>
+            Category Name
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>
+                @c.CategoryId
+            </td>
+            <td>
+                @c.CategoryName
+            </td>
+            <td>
+              
+                <a href="/Category/Edit/@c.CategoryId">Update</a> /
+                <a href="/Category/Delete/@c.CategoryId">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

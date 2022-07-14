@@ -1,0 +1,24 @@
+﻿@model WebApplication3.Models.Category
+
+@{
+    ViewBag.Title = "Delete Category";
+}
+
+<h2>Delete Category</h2>
+
+<form action="/Category/Delete/@Model.CategoryId" method="post">
+    <table class="table">
+        <tr>
+            <td>
+                <label for="CategoryName">Category Name</label>
+            </td>
+            <td>
+                <input type="hidden" name="CategoryID" value="@Model.CategoryId" />@Model.CategoryName
+            </td>
+        </tr>
+    </table>
+    <div>Are You Sure To Delete This Category</div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-success" href="/Category/index">Cancel</a>
+</form>
+

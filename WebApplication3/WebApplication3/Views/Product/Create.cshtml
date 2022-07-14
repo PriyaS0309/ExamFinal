@@ -1,0 +1,45 @@
+﻿@model WebApplication3.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add Product</h2>
+
+<form action="/product/create" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category_CategoryId, "Category_CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Category_CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category_CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group col-md-6">
+            <label for="CategoryID">Category ID</label>
+            <select class="form-control" id="CategoryId" name="CategoryId">
+                <option value="">Please Select </option>
+                @foreach (var cat in ViewBag.categories)
+                { 
+                    <option value="@cat.CategoryId">@cat.CategoryName</option>
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="CategoryName">Category Name</label>
+            <select class="form-control" id="CategoryName" name="CategoryName">
+                <option value="">Please Select </option>
+                @foreach (var cat in ViewBag.categories)
+                {
+                    <option value="@cat.CategoryName">@cat.CategoryName</option>
+                }
+            </select>
+        </div>*@
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a class="btn btn-danger" href="/products/index">Cancel</a>
+</form>

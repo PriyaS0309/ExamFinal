@@ -1,0 +1,60 @@
+﻿@model WebApplication3.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Product Details</h2>
+<form action="/Product/Edit/@Model.ProductId'" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name:</label>
+            <input type="hidden" name="ProductID" value="@Model.ProductId" />
+            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name" value="@Model.ProductName" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category_CategoryId, "Category_CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Category_CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Category_CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group col-md-6">
+            <label for="CategoryID">Category ID</label>
+            <select class="form-control" id="CategoryID" name="CategoryID">
+                <option value="">Please Select Category</option>
+                @foreach (var cat in ViewBag.categories)
+                {
+                    if (cat.CategoryId == Model.CategoryId)
+                    {
+                        <option value="@cat.CategoryId" selected="selected">@cat.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@cat.CategoryId">@cat.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="CategoryName">Category Name</label>
+            <select class="form-control" id="CategoryName" name="CategoryName">
+                <option value="">Please Select Category</option>
+                @foreach (var cat in ViewBag.categories)
+                {
+                    if (cat.CategoryName == Model.Category.CategoryName)
+                    {
+                        <option value="@cat.CategoryName" selected="selected">@cat.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@cat.CategoryName">@cat.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>*@
+    </div>
+    <button type="submit" class="btn btn-success">Edit Details</button>
+    <a href="/Products/index" class="btn btn-danger">Cancel</a>
+</form>
+

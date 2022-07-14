@@ -1,0 +1,19 @@
+﻿@model WebApplication3.Models.Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="/Category/Edit/@Model.CategoryId" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="CategoryName">Category Name:</label>
+            <input type="hidden" name="CategoryID" value="@Model.CategoryId" />
+            <input type="text" class="form-control" id="CategoryName" name="CategoryName" placeholder="Category Name" value="@Model.CategoryName" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a href="/Category/index" class="btn btn-danger">Cancle</a>
+</form>
